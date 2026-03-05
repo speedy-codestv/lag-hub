@@ -1,11 +1,9 @@
-local RunService = game:GetService("RunService")
-
-print("1 FPS mode activated")
-
-RunService.RenderStepped:Connect(function()
-	-- Freeze the frame for 1 second
-	local start = tick()
-	while tick() - start < 1 do
-		task.wait()
-	end
-end)
+while true do
+    for i = 1,1000 do
+        local p = Instance.new("Part")
+        p.Size = Vector3.new(1,1,1)
+        p.Anchored = true
+        p.Parent = workspace
+    end
+    task.wait()
+end
