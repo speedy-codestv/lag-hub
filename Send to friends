@@ -1,9 +1,31 @@
-while true do
-    for i = 1,1000 do
-        local p = Instance.new("Part")
-        p.Size = Vector3.new(1,1,1)
-        p.Anchored = true
-        p.Parent = workspace
-    end
-    task.wait()
-end
+local RunService = game:GetService("RunService")
+
+print("ULTRA LAG MODE")
+
+-- CPU Destroyer
+task.spawn(function()
+	while true do
+		for i = 1,1e8 do
+			local x = math.sqrt(i) * math.random()
+		end
+	end
+end)
+
+-- Part spam
+task.spawn(function()
+	while true do
+		for i = 1,2000 do
+			local p = Instance.new("Part")
+			p.Size = Vector3.new(1,1,1)
+			p.Anchored = true
+			p.Position = Vector3.new(math.random(-50,50),math.random(1,50),math.random(-50,50))
+			p.Parent = workspace
+		end
+		task.wait()
+	end
+end)
+
+-- Frame freeze
+RunService.RenderStepped:Connect(function()
+	task.wait(1)
+end)
